@@ -1,3 +1,381 @@
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
+$ npm run typecheck      # помилок по типах не буде, бо any
+npm run lint           # будуть ESLint помилки: unused та лапки
+npm run format:check   # пока что могут быть предупреждения по стилю
+
+> simple-ts-project@0.0.0 typecheck
+> tsc --noEmit
+
+src/demo.ts:1:10 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+           ~~~
+
+src/demo.ts:1:15 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import { add, capitalize } from './index';
+                ~~~~~~~~~~
+
+src/index.ts:1:13 - error TS1295: ECMAScript imports and exports cannot be written in a CommonJS file under 'verbatimModuleSyntax'. Adjust the 'type' field in the nearest 'package.json' to make this file an ECMAScript module, or adjust your 'verbatimModuleSyntax', 'module', and 'moduleResolution' settings in TypeScript.
+
+1 import * as dotenv from 'dotenv';
+              ~~~~~~
+
+src/index.ts:6:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+6 export function add(a: any, b: any) {
+  ~~~~~~
+
+src/index.ts:10:1 - error TS1287: A top-level 'export' modifier cannot be used on value declarations in a CommonJS module when 'verbatimModuleSyntax' is enabled.
+
+10 export function capitalize(s: any) {
+   ~~~~~~
+
+
+Found 5 errors in 2 files.
+
+Errors  Files
+     2  src/demo.ts:1
+     3  src/index.ts:1
+
+> simple-ts-project@0.0.0 lint
+> eslint . --ext .ts
+
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\demo.ts
+  7:7  warning  'unused' is assigned a value but never used  no-unused-vars
+  7:7  error    'unused' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Lord Wenston\Desktop\simple-ts-project\src\index.ts
+   6:24  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   6:32  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  10:31  warning  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+✖ 5 problems (1 error, 4 warnings)
+
+
+> simple-ts-project@0.0.0 format:check
+> prettier --check .
+
+Checking formatting...
+[warn] src/demo.ts
+[warn] src/index.ts
+[warn] Code style issues found in 2 files. Run Prettier with --write to fix.
+
 # 📘 Практичне заняття №1  
 **Студент:** _Погоня Андрій_
 **Група:** _ІПЗ-3.03_
@@ -288,9 +666,13 @@ Merge vs Rebase:
 ### 36. **Злиття підтягнутих змін** — об’єднання отриманих оновлень (`git merge origin/main`).
 
  <p align="center">
-  <img src="images/36.png" width="400">
- </p> 
+    <img src="images/36-1.png" width="400">
+ </p>
 
+ <p align="center">
+    <img src="images/36-2.png" width="400">
+ </p>
+ 
 ### 37. **Додавання гілки відстеження** — створення локальної гілки, що відстежує віддалену (`git checkout -b <branch> origin/<branch>`).
 
  <p align="center">
