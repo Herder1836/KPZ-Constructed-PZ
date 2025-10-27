@@ -154,8 +154,8 @@ v0.1.0 → v0.2.0 → v0.3.0 → v0.4.0 → v0.5.0 → v0.6.0 → v1.0.0 → v2.
 
 ```
 
-🔗 [Переглянути репозиторій на GitHub](https://github.com/Herder1836/workshop_2_Simple_project)
-🔗 [Переглянути теги на GitHub](https://github.com/Herder1836/workshop_2_Simple_project/tags)
+🔗 [Переглянути репозиторій GitHub](https://github.com/Herder1836/workshop_2_Simple_project)
+🔗 [Переглянути теги в репозиторії GitHub](https://github.com/Herder1836/workshop_2_Simple_project/tags)
 
 ---
 
